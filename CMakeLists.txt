@@ -198,12 +198,12 @@ include_directories(
 # catkin_add_nosetests(test)
 
 ## Declare a C++ executable
-add_executable(wpb_ai_core
-  src/wpb_ai_core.cpp
+add_executable(wpb_core
+  src/wpb_core.cpp
   src/driver/SerialCom.cpp
   src/driver/WPB_AI_driver.cpp
 )
-add_dependencies(wpb_ai_core ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(wpb_ai_core
+add_dependencies(wpb_core ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(wpb_core
   ${catkin_LIBRARIES}
 )
