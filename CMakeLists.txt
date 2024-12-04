@@ -216,3 +216,12 @@ add_dependencies(wpb_js_vel ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTE
 target_link_libraries(wpb_js_vel
   ${catkin_LIBRARIES}
 )
+
+## Declare a C++ executable
+add_executable(round
+  src/show/round.cpp
+)
+add_dependencies(round ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(round
+  ${catkin_LIBRARIES}
+)
