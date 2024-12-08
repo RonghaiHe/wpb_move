@@ -74,8 +74,9 @@ TeleopJoy::TeleopJoy()
   ROS_INFO("TeleopJoy");
 }
 
-static float kl = 0.2;
-static float kt = 0.5;
+// static float kl = 0.2;
+// static float kt = 0.5;
+double kl, kt;
 void TeleopJoy::callBack(const sensor_msgs::Joy::ConstPtr& joy)
 {
 
@@ -92,19 +93,22 @@ void TeleopJoy::SendVelcmd()
   if(bStart == false)
     return;
   geometry_msgs::Twist vel_cmd;
-  vel_cmd.linear.x = (float)lx*kl;
-  vel_cmd.linear.y = (float)ly*kl;
+  vel_cmd.linear.x = (float)lx*(float)kl;
+  vel_cmd.linear.y = (float)ly*(float)kl;
   vel_cmd.linear.z = 0;
   vel_cmd.angular.x = 0;
   vel_cmd.angular.y = 0;
-  vel_cmd.angular.z = (float)ry*kt;
+  vel_cmd.angular.z = (float)ry*(float)kt;
   velcmd_pub.publish(vel_cmd);
 }
 
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "wpb_home_js_vel");
-
+  ros::NodeHandle n_param("~");
+  n_param.param<double>("scale_linear", kl, 0.2);
+  n_param.param<double>("scale_angular", kt, 0.5);
+  
   TeleopJoy cTeleopJoy;
 
   ros::Rate r(30);
