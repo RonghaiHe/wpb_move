@@ -5,5 +5,9 @@
         <param name="serial_port" type="string" value="/dev/ftdi"/> 
     </node>
 
-    <node pkg="wpb_move" type="round" name="round" output="screen" />
+    <node pkg="wpb_move" type="round" name="round" output="screen">
+        <param name="v_x" type="int" value="0"/>
+        <param name="v_y" type="int" value="0"/>
+        <param name="v_az" type="int" value="0"/>
+    </node>
 </launch>
