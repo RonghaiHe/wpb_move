@@ -1,6 +1,6 @@
 <launch>
-  <arg name="scale_linear" default="1">
-  <arg name="scale_angular" default="2">
+  <arg name="scale_linear" default="1" />
+  <arg name="scale_angular" default="2" />
 
   <!-- wpb_move core-->
   <node pkg="wpb_move" type="wpb_core" name="wpb_core" output="screen">
