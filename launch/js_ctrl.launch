@@ -1,4 +1,6 @@
 <launch>
+  <arg name="scale_linear" default="1">
+  <arg name="scale_angular" default="2">
 
   <!-- wpb_move core-->
   <node pkg="wpb_move" type="wpb_core" name="wpb_core" output="screen">
@@ -17,8 +19,8 @@
     <!-- Axes Velcmd -->
     <param name="axis_linear" value="1" type="int"/>
     <param name="axis_angular" value="0" type="int"/>
-    <param name="scale_linear" value="1" type="double"/>
-    <param name="scale_angular" value="2" type="double"/>
+    <param name="scale_linear" value="$(arg scale_linear)" type="double"/>
+    <param name="scale_angular" value="$(arg scale_angular)" type="double"/>
   </node>
 
 </launch>
